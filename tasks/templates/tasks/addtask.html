@@ -8,13 +8,14 @@
                 <title>Document</title>
             </head>
             <body>
-                <ul> 
-                    {% for task in tasks %}
-                        <li> {{ task }} </li>
-                    {% endfor %}
-
-                </ul>
+                <h1> Add a Task </h1>
+                <form action=' {% url "tasks:addtask" %}' method='post'> 
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit">
+                </form>
                 
-                <a href="{% url 'tasks:addtask' %}"> View tasks <a/>
+                <a href=' {% url "tasks:index" %}'> Add a task </a>
+            
             </body>
         </html> 
